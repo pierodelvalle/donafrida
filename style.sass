@@ -1,0 +1,456 @@
+@charset "utf-8"
+
+@font-face
+	font-family: 'Gotham'
+	src: url('font/Gotham-Bold.woff2') form('woff2')
+	src: url('font/Gotham-Bold.woff') form('woff')
+	font-weight: bold
+	font-style: normal
+
+
+@font-face
+	font-family: 'Gotham'
+	src: url('font/Gotham-Light.woff2') form('woff2')
+	src: url('font/Gotham-Light.woff') form('woff')
+	font-weight: 300
+	font-style: normal
+
+@font-face
+	font-family: 'Gotham'
+	src: url('font/Gotham-Book.woff2') form('woff2')
+	src: url('font/Gotham-Book.woff') form('woff')
+	font-weight: normal
+	font-style: normal
+
+@font-face
+	font-family: 'Bebas Neue'
+	src: url('font/BebasNeue-Bold.woff2') form('woff2')
+	src: url('font/BebasNeue-Bold.woff') form('woff')
+	font-weight: bold
+	font-style: normal
+
+
+@font-face
+	font-family: 'Bebas Neue'
+	src: url('font/BebasNeue-Light.woff2') form('woff2')
+	src: url('font/BebasNeue-Light.woff') form('woff')
+	font-weight: 300
+	font-style: normal
+
+@font-face
+	font-family: 'Bebas Neue'
+	src: url('font/BebasNeue-Book.woff2') form('woff2')
+	src: url('font/BebasNeue-Book.woff') form('woff')
+	font-weight: normal
+	font-style: normal
+
+@keyframes fadeUp
+	0%
+		opacity: 0
+		top: 225px
+	100%
+		opacity: 1
+		top: 0
+
+@keyframes appear
+	0%
+		transform: scale(0)
+	100%
+		transform: scale(1)
+
+// Base stuff or bulma is broken
+@import "node_modules/bulma/sass/utilities/initial-variables"
+@import "node_modules/bulma/sass/utilities/functions"
+@import "node_modules/bulma/sass/utilities/derived-variables"
+
+// Stuff we'll need
+@import "node_modules/bulma/sass/utilities/mixins"
+@import "node_modules/bulma/sass/base/minireset"
+@import "node_modules/bulma/sass/grid/columns"
+
+
+// My styles :)
+
+// Colors Variables
+$blue: #0057a6
+$orange: #f1a233
+$yellow: #ffd131
+$red: #dc4351
+
+// Font Variables
+$font-size: 14px
+
+// Layout Variables
+$container-width: 1140px
+
+// Viewport sizes
+$phone-size: 480px
+
+::selection
+	background: rgba($orange, 0.75)
+	color: white
+
+body 
+	background: url('img/bgtex.jpg')
+	color: $blue
+	font-family: 'Gotham', sans-serif
+	font-size: $font-size
+
+.container
+	max-width: $container-width
+	margin: 0 auto
+	padding: 0 15px
+
+h1
+	font-size: 48px
+	font-family: 'Bebas Neue'
+	font-weight: bold
+	line-height: 1
+
+h2
+	font-size: 42px
+
+	font-family: 'Bebas Neue'
+	font-weight: bold
+h3
+	font-size: 36px
+
+	font-family: 'Bebas Neue'
+	font-weight: bold
+
+h4
+	font-size: 24px
+
+	font-family: 'Bebas Neue'
+	font-weight: bold
+
+h5
+	font-size: 18px
+h6
+	font-size: 14px
+	font-weight: bold
+
+a
+	color: inherit
+	text-decoration: none
+
+a:not([class])
+	color: $orange
+	font-weight: bold
+
+	&:hover
+		color: $yellow
+
+p
+	line-height: 1.5
+	margin-bottom: 13.5px
+
+ul
+	margin-top: 10px
+	list-style: circle
+	margin-left: 20px
+
+li
+	margin-bottom: 10px
+
+.home
+	display: flex
+	align-items: center
+
+	position: relative
+
+	img
+		height: 130px
+
+		display: inline-block
+
+nav
+	padding: 20px 0
+
+	display: flex
+	justify-content: space-between
+	flex-direction: column
+	align-items: center
+
+	font-family: 'Bebas Neue'
+
+	&.index
+		color: white
+
+	@media screen and (min-width: $phone-size)
+		flex-direction: row
+
+	a.nav-link
+		display: inline-block
+
+		text-align: center
+		font-size: 24px
+
+		padding: 10px 0
+
+		@media screen and (min-width: $phone-size)
+
+			border-bottom: 2px solid transparent
+			padding: 0 0 10px 0 !important
+
+		@media screen and (min-width: $phone-size) and (max-width: 768px)
+			font-size: 18px
+
+.nav-toggle
+	width: 50px
+	height: 50px
+
+	padding: 0 8px
+
+	border: 2px solid $blue
+
+	display: flex
+	justify-content: center
+
+	flex-direction: column
+
+	transition: 0.25s ease all
+
+	div
+		transition: 0.25s ease all
+
+		height: 2px
+		width: 100%
+
+		background: $blue
+		margin: 4px 0
+
+	&.index
+		border-color: white
+
+		div
+			background: white
+
+		&.active
+			background: white
+
+			div
+				background: black
+
+	&.active
+		background: $blue
+
+		div
+			background: white
+			&:nth-child(1)
+				transform: rotate(45deg) translate(0px, -8px)
+				transform-origin: 0 0
+			&:nth-child(3)
+				transform: rotate(-45deg) translate(0px, 8px)
+				transform-origin: 0 100%
+			&:nth-child(2)
+				display: none
+
+	@media screen and (min-width: $phone-size)
+		display: none
+
+.nav-start
+	margin-bottom: 10px
+
+	@media screen and (min-width: $phone-size)
+		margin: 0
+
+.nav-start
+	width: 100%
+	display: flex
+	justify-content: space-between
+	align-items: center
+
+	.dummy
+		width: 50px
+	
+	@media screen and (min-width: $phone-size)
+		width: auto
+		display: block
+
+.nav-menu
+	display: none
+
+	transition: 0.25s ease all
+	
+	.nav-link
+		width: 100%
+		
+		margin: 0
+
+		@media screen and (min-width: $phone-size)
+
+			width: auto
+			
+			margin: 0 15px 
+
+			&:hover
+				border-color: $orange
+
+	@media screen and (min-width: $phone-size)
+		display: block
+
+	&.active
+		display: block
+
+		transition: 0.25s ease all
+
+.nav-end
+	display: none
+	@media screen and (min-width: $phone-size)
+		display: block
+
+.video-wrapper
+	min-width: 100%
+	min-height: 100%
+
+	video
+		max-width: none
+		min-width: 100vw
+		min-height: 100vh
+		position: fixed
+		z-index: -1
+		top: 50%
+		left: 50%
+
+		transform: translate(-50%, -50%)
+
+.fruitmenu
+	margin: 0 0 20px
+
+	display: flex
+	flex-direction: column
+	justify-content: center
+
+	font-family: 'Bebas Neue'
+	font-size: 20px
+	letter-spacing: 0.5px
+
+	@media screen and (min-width: $phone-size)
+		margin: 20px 0
+		flex-direction: row
+
+	a
+		display: inline-block
+
+		text-align: center
+		color: inherit
+
+		border: 2px solid $blue
+		margin: 5px 0 
+		padding: 10px 20px
+
+		transition: 0.25s ease all
+
+		@media screen and (min-width: 480px)
+			margin: 0 10px
+
+		&:hover
+			transition: 0.25s ease all
+			&.red
+				background: $red
+				color: white
+			&.yellow
+				background: $yellow
+			&.orange
+				background: $orange
+
+		&.active
+			&.red
+				background: $red
+				color: white
+			&.yellow
+				background: $yellow
+			&.orange
+				background: $orange
+
+
+.timeline
+	padding: 20px 0 0
+
+	font-family: 'Bebas Neue'
+	font-weight: bold
+	font-size: 20px
+	.column
+		text-align: center
+		display: inline-block
+		&.is-3-mobile
+			width: 23.8% !important
+
+	@media screen and (min-width: $phone-size)
+		padding: 20px 0 40px
+
+.timeline-dot
+	margin: 10px auto
+
+	height: 15px
+	width: 15px
+
+	background: grey
+	border-radius: 20px
+	
+	transform: scale(0)
+
+	&.animate
+		animation: appear 0.5s ease
+
+	&.harvest
+		margin: 5px auto
+		height: 25px
+		width: 25px
+		
+		background: white
+		border: 7px solid transparent
+
+		&.yellow
+			border-color: $yellow
+		&.orange
+			border-color: $orange
+		&.red
+			border-color: $red
+
+@for $i from 1 through 12
+	.timeline-dot.no-#{$i}
+		animation-delay: $i * 0.1s
+		animation-fill-mode: forwards
+
+.certifications
+	text-align: center
+
+	img
+		height: 75px
+		@media screen and (min-width: $phone-size)
+			height: 100px
+
+.pane
+	display: none
+
+	position: relative
+	
+	&.active
+		animation: fadeUp 0.75s ease
+		display: block
+
+.map
+	overflow: hidden
+	position: relative
+	min-height: 500px
+
+	iframe
+		top: 0
+		left: 0
+		height: 100%
+		width: 100%
+		position: absolute 
+
+main:not([class])
+	margin-bottom: 5vh
+	@media screen and (min-width: $phone-size)
+		margin-bottom: 20vh
+
+main.home+footer
+	display: none
+
+footer
+	padding: 20px 0
+

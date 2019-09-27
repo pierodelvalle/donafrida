@@ -4,8 +4,24 @@
   "description": "a site for a fruit vendor",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "css-build": "node-sass --omit-source-map-url style.sass style.css",
+    "css-watch": "npm run css-build -- --watch",
+    "start": "npm run css-watch"
   },
   "author": "piero",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "bulma": "^0.7.5",
+    "node-sass": "^4.12.0"
+  },
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pierodelvalle/donafrida.git"
+  },
+  "bugs": {
+    "url": "https://github.com/pierodelvalle/donafrida/issues"
+  },
+  "homepage": "https://github.com/pierodelvalle/donafrida#readme"
 }
