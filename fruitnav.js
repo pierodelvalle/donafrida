@@ -1,4 +1,4 @@
-var tabs = document.querySelectorAll(".fruitmenu a");
+var tabs = document.querySelectorAll(".tabmenu a.tab");
 
 function tabClick(e) {
 	var content = document.querySelectorAll('.pane')
@@ -31,7 +31,9 @@ function tabClick(e) {
 		arrows: false,
 		dots: true,
 		fade: true,
-		adaptiveHeight: true
+		adaptiveHeight: true,
+		autoplay: true,
+		autoplaySpeed: 2000
 	})
 }
 

@@ -1,11 +1,36 @@
+<?php 
+
+if (isset($_POST['lang'])) {
+	$lang = $_POST['lang'];
+	setcookie('lang', $lang, 2147483647, "/", "donafrida.test");
+	//setcookie('lang', $lang, 2147483647, "/", "blackpeppa.pe");
+	header("Refresh:0");
+}
+
+$language = isset($_COOKIE['lang']) ? $_COOKIE['lang'] : 'es';
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width">
-	<title>Document</title>
+	<title>Doña Frida</title>
+	<link rel="stylesheet" href="https://use.typekit.net/bnw3tfy.css">
 	<link rel="stylesheet" href="style.css">
 
+	<!-- Open Graph Data -->
+	<meta property="og:type" content="business.business">
+	<meta property="og:title" content="Doña Frida">
+	<meta property="og:url" content="http://donafrida.pe/">
+	<meta property="og:image" content="http://donafrida.pe/preview.jpg">
+	<meta property="business:contact_data:street_address" content="Calle Buenaventura Raygada Mz. B Lote 5 Of. 202, Urb. San Isidro">
+	<meta property="business:contact_data:locality" content="Piura">
+	<meta property="business:contact_data:region" content="Piura">
+	<meta property="business:contact_data:postal_code" content="20001">
+	<meta property="business:contact_data:country_name" content="Peru">
+
+	<!-- Favicon -->
 	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
